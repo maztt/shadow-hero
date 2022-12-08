@@ -1,0 +1,20 @@
+@media (max-width: 425px) {
+  #controls-container,
+  #preview {
+    padding: 1rem 2rem;
+  }
+
+  #box-shadow-generator {
+    flex-direction: column;
+  }
+
+  #box {
+    width: 60%;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  #generated-rule {
+    margin-top: 1.5rem;
+  }
+}
