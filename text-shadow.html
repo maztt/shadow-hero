@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/responsive.css">
 
-    <script src="src/js/scripts.js" defer></script>
+    <script src="src/js/text-shadow.js" defer></script>
 
   </head>
   <body>
 
     <div id="box-shadow-generator">
       <div id="controls-container">
-        <h2>Set your <span class="name">Shadow Hero</span> <u>box</u> config:</h2>
+        <h2>Set your <span class="name">Shadow Hero</span> <u>text</u> config:</h2>
         <div class="form-control">
           <div class="range-input">
             <label for="horizontal">Horizontal offset (displacement):</label>
@@ -67,27 +67,10 @@
             <input type="text" name="blur-value" id="blur-value">
             <p>px</p>
           </div>
-        </div>
+        </div>  
         <div class="form-control">
           <div class="range-input">
-            <label for="spread">Spread intensity:</label>
-            <input
-              type="range"
-              name="spread"
-              id="spread"
-              min="-100"
-              max="100"
-              value="3"
-            />
-          </div>
-          <div class="reference-input">
-            <input type="text" name="spread-value" id="spread-value">
-            <p>px</p>
-          </div>
-        </div>
-        <div class="form-control">
-          <div class="range-input">
-            <label for="color">Shadow color:</label>
+            <label for="spread">Shadow color:</label>
             <input
               type="color"
               name="color"
@@ -115,31 +98,23 @@
             <input type="text" name="opacity-value" id="opacity-value">
           </div>
         </div>
-        <div class="form-control">
-          <div class="range-input">
-            <label for="inset">Inner shadow (inset):</label>
-            <input
-              type="checkbox"
-              name="inset"
-              id="inset"
-            />
-          </div>
-        </div>
       </div>
 
       <div id="preview">
         <img src="src/images/heroshadow.png" alt="">
         <h2><span class="name">Shadow Hero</span> Preview:</h2>
-        <div id="box"></div>
+        <span id="text">
+          What does the S on your chest stand for?
+        </span>
       </div>
     </div>
 
     <div id="generated-rule">
       <h2>These are your rules:</h2>
       <div id="rules-area">
-        <p id="rule">box-shadow: <span></span>;</p>
-        <p id="webkit-rule">-webkit-box-shadow: <span></span>;</p>
-        <p id="moz-rule">-moz-box-shadow: <span></span>;</p>
+        <p id="rule">text-shadow: <span></span>;</p>
+        <p id="webkit-rule">-webkit-text -shadow: <span></span>;</p>
+        <p id="moz-rule">-moz-text -shadow: <span></span>;</p>
       </div>
       <p id="copy-config">
         Click the area above to copy the current rules

@@ -111,6 +111,11 @@ input#inset {
   background-color: #a4a920;
 }
 
+#text {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
 #generated-rule {
   text-align: center;
   margin-bottom: 2rem;
@@ -146,4 +151,8 @@ input#inset {
 
 .name {
   color: #a4a920;
+}
+
+.display {
+  display: none;
 }
