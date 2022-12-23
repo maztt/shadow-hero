@@ -127,7 +127,6 @@ const mozRule = document.querySelector('#moz-rule span')
 const rulesArea = document.querySelector('#rules-area');
 const copyConfig = document.querySelector("#copy-config")
 
-
 const boxShadow = new BoxShadowGenerator(
   horizontal,
   horizontalRef,

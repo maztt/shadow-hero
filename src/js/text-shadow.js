@@ -86,38 +86,38 @@ class TextShadowGenerator {
   }
 }
 
-const horizontal = document.querySelector('#horizontal')
-const horizontalRef = document.querySelector('#horizontal-value')
-const vertical = document.querySelector('#vertical')
-const verticalRef = document.querySelector('#vertical-value')
-const blur = document.querySelector('#blur')
-const blurRef = document.querySelector('#blur-value')
-const color = document.querySelector('#color')
-const colorRef = document.querySelector('#color-value')
-const opacity = document.querySelector('#opacity')
-const opacityRef = document.querySelector('#opacity-value')
+const textHorizontal = document.querySelector('#text-horizontal')
+const textHorizontalRef = document.querySelector('#text-horizontal-value')
+const textVertical = document.querySelector('#text-vertical')
+const textVerticalRef = document.querySelector('#text-vertical-value')
+const textBlur = document.querySelector('#text-blur')
+const textBlurRef = document.querySelector('#text-blur-value')
+const textColor = document.querySelector('#text-color')
+const textColorRef = document.querySelector('#text-color-value')
+const textOpacity = document.querySelector('#text-opacity')
+const textOpacityRef = document.querySelector('#text-opacity-value')
 
 const previewText = document.querySelector('#text')
 
-const rule = document.querySelector('#rule span')
-const webkitRule = document.querySelector('#webkit-rule span')
-const mozRule = document.querySelector('#moz-rule span')
+const textRule = document.querySelector('#rule span')
+const textWebkitRule = document.querySelector('#webkit-rule span')
+const textMozRule = document.querySelector('#moz-rule span')
 
-const rulesArea = document.querySelector('#rules-area');
+const textRulesArea = document.querySelector('#rules-area');
 const copyConfig = document.querySelector("#copy-config")
 
 
 const textShadow = new TextShadowGenerator(
-  horizontal,
-  horizontalRef,
-  vertical,
-  verticalRef,
-  blur,
-  blurRef,
-  color,
-  colorRef,
-  opacity,
-  opacityRef,
+  textHorizontal,
+  textHorizontalRef,
+  textVertical,
+  textVerticalRef,
+  textBlur,
+  textBlurRef,
+  textColor,
+  textColorRef,
+  textOpacity,
+  textOpacityRef,
   previewText,
   rule,
   webkitRule,

@@ -156,3 +156,12 @@ input#inset {
 .display {
   display: none;
 }
+
+#option-control {
+  padding: .5rem;
+  display: flex;
+  margin: auto;
+  width: 50%;
+  background-color: #a4a920;
+  font-weight: 600;
+}
