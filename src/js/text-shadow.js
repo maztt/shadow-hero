@@ -99,12 +99,12 @@ const textOpacityRef = document.querySelector('#text-opacity-value')
 
 const previewText = document.querySelector('#text')
 
-const textRule = document.querySelector('#rule span')
-const textWebkitRule = document.querySelector('#webkit-rule span')
-const textMozRule = document.querySelector('#moz-rule span')
+const textRule = document.querySelector('#text-rule span')
+const textWebkitRule = document.querySelector('#text-webkit-rule span')
+const textMozRule = document.querySelector('#text-moz-rule span')
 
-const textRulesArea = document.querySelector('#rules-area');
-const copyConfig = document.querySelector("#copy-config")
+const textRulesArea = document.querySelector('#text-rules-area');
+const textCopyConfig = document.querySelector("#text-copy-config")
 
 
 const textShadow = new TextShadowGenerator(
@@ -119,9 +119,9 @@ const textShadow = new TextShadowGenerator(
   textOpacity,
   textOpacityRef,
   previewText,
-  rule,
-  webkitRule,
-  mozRule
+  textRule,
+  textWebkitRule,
+  textMozRule
 )
 
 textShadow.initialize()
@@ -129,45 +129,45 @@ textShadow.initialize()
 
 // EVENTS
 
-rulesArea.addEventListener('click', () => {
-  const rules = rulesArea.innerText.replace(/^\s*\n/gm, "");
+textRulesArea.addEventListener('click', () => {
+  const textRules = textRulesArea.innerText.replace(/^\s*\n/gm, "");
 
-  navigator.clipboard.writeText(rules).then(() => {
-    copyConfig.innerText = "Config copied! Apply it to your project.";
+  navigator.clipboard.writeText(textRules).then(() => {
+    textCopyConfig.innerText = "Config copied! Apply it to your project.";
 
     setTimeout(() => {
-      copyConfig.innerText = 'Click the area above to copy the current rules';
+      textCopyConfig.innerText = 'Click the area above to copy the current rules';
     }, 1000);
     })
  })
 
  
 
-horizontal.addEventListener("input", (e) => {
+textHorizontal.addEventListener("input", (e) => {
   const value = e.target.value
 
   textShadow.updateValue("horizontal", value)
 })
 
-vertical.addEventListener("input", (e) => {
+textVertical.addEventListener("input", (e) => {
   const value = e.target.value
 
   textShadow.updateValue("vertical", value)
 })
 
-blur.addEventListener("input", (e) => {
+textBlur.addEventListener("input", (e) => {
   const value = e.target.value
 
   textShadow.updateValue("blur", value)
 })
 
-color.addEventListener("input", (e) => {
+textColor.addEventListener("input", (e) => {
   const value = e.target.value
 
   textShadow.updateValue("color", value)
 })
 
-opacity.addEventListener("input", (e) => {
+textOpacity.addEventListener("input", (e) => {
   const value = e.target.value
 
   textShadow.updateValue("opacity", value)

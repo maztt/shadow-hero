@@ -50,6 +50,21 @@ h2 {
   flex: 1;
 }
 
+.range-input.filters {
+  flex-direction: row;
+  align-items: center;
+}
+
+.range-input.filters label {
+  width: 100px;
+  margin-bottom: 0;
+  margin-left: 1rem;
+}
+
+.range-input.filters input[type="range"] {
+  width: 200px;
+}
+
 .range-input input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -165,3 +180,7 @@ input#inset {
   background-color: #a4a920;
   font-weight: 600;
 }
+
+/* #filtered-img {
+  filter: drop-shadow(76px 5px 10px rgba(0, 0, 0));
+} */

@@ -13,6 +13,7 @@ class ImageFilterGenerator {
     previewImg,
     contrast,
     contrastRef,
+    checkContrast,
     brightness,
     brightnessRef,
     grayscale,
@@ -41,6 +42,7 @@ class ImageFilterGenerator {
     this.previewImg = previewImg
     this.contrast = contrast
     this.contrastRef = contrastRef
+    this.checkContrast = checkContrast.checked
     this.brightness = brightness
     this.brightnessRef = brightnessRef
     this.grayscale = grayscale
@@ -79,9 +81,9 @@ class ImageFilterGenerator {
   applyRule() {
     const rgbValue = this.hexToRgb(this.colorRef.value);
 
-    const shadowRule = `${this.horizontalRef.value}px ${this.verticalRef.value}px ${this.blurRef.value}px rgba(${rgbValue}, ${this.opacityRef.value})`;
+    const shadowRule = `${this.dropshadowRef ? `drop-shadow(${this.horizontalRef.value}px ${this.verticalRef.value}px ${this.blurRef.value}px rgba(${rgbValue}))` : ""} ${this.checkContrast ? `contrast(${this.contrastRef.value}%)` : ""} ${this.brightnessRef ? `brightness(${this.brightnessRef.value}%)` : ""} ${this.grayscaleRef ? `grayscale(${this.grayscaleRef.value}%)` : ""} ${this.hueRotationRef ? `hue-rotate(${this.hueRotationRef.value}deg)` : ""} ${this.saturationRef ? `saturation(${this.saturationRef.value}%)` : ""} ${this.sepiaRef ? `sepia(${this.sepiaRef.value}%)` : ""}`;
 
-    this.previewImg.style.imgFilter = shadowRule;
+    this.previewImg.style.filter = shadowRule;
     this.currentRule = shadowRule;
   }
 
@@ -132,18 +134,13 @@ class ImageFilterGenerator {
         this.sepiaRef.value = value;
         break
       case "dropshadow":
-        if (dropshadow.checked) {
+
+        if (filterDropshadow.checked) {
           this.dropshadowRef = value;
         } else {
           this.dropshadowRef = "";
         }
-        break
-      case "other":
-        if (other.checked) {
-          this.otherRef = value;
-        } else {
-          this.otherRef = "";
-        }
+
         break
     }
 
@@ -152,72 +149,80 @@ class ImageFilterGenerator {
   }
 }
 
-const horizontal = document.querySelector('#horizontal')
-const horizontalRef = document.querySelector('#horizontal-value')
-const vertical = document.querySelector('#vertical')
-const verticalRef = document.querySelector('#vertical-value')
-const blur = document.querySelector('#blur')
-const blurRef = document.querySelector('#blur-value')
-const color = document.querySelector('#color')
-const colorRef = document.querySelector('#color-value')
-const opacity = document.querySelector('#opacity')
-const opacityRef = document.querySelector('#opacity-value')
+const filterHorizontal = document.querySelector('#filter-horizontal')
+const filterHorizontalRef = document.querySelector('#filter-horizontal-value')
+const filterVertical = document.querySelector('#filter-vertical')
+const filterVerticalRef = document.querySelector('#filter-vertical-value')
+const filterBlur = document.querySelector('#filter-blur')
+const filterBlurRef = document.querySelector('#filter-blur-value')
+const filterColor = document.querySelector('#filter-color')
+const filterColorRef = document.querySelector('#filter-color-value')
+const filterOpacity = document.querySelector('#filter-opacity')
+const filterOpacityRef = document.querySelector('#filter-opacity-value')
 
-const contrast = document.querySelector('#contrast')
-const contrastRef = document.querySelector('#contrast-value')
-const brightness = document.querySelector('#brightness')
-const brightnessRef = document.querySelector('#brightness-value')
-const grayscale = document.querySelector('#grayscale')
-const grayscaleRef = document.querySelector('#grayscale-value')
-const hueRotation = document.querySelector('#hueRotation')
-const hueRotationRef = document.querySelector('#hueRotation-value')
-const saturation = document.querySelector('#saturation')
-const saturationRef = document.querySelector('#saturation-value')
-const sepia = document.querySelector('#sepia')
-const sepiaRef = document.querySelector('#sepia-value')
+const filterContrast = document.querySelector('#filter-contrast')
+const filterContrastRef = document.querySelector('#filter-contrast-value')
+const filterBrightness = document.querySelector('#filter-brightness')
+const filterBrightnessRef = document.querySelector('#filter-brightness-value')
+const filterGrayscale = document.querySelector('#filter-grayscale')
+const filterGrayscaleRef = document.querySelector('#filter-grayscale-value')
+const filterHueRotation = document.querySelector('#filter-hueRotation')
+const filterHueRotationRef = document.querySelector('#filter-hueRotation-value')
+const filterSaturation = document.querySelector('#filter-saturation')
+const filterSaturationRef = document.querySelector('#filter-saturation-value')
+const filterSepia = document.querySelector('#filter-sepia')
+const filterSepiaRef = document.querySelector('#filter-sepia-value')
 
 
-const other = document.querySelector('#other')
-const dropshadow = document.querySelector('#dropshadow')
+// const filterOther = document.querySelector('#filter-other')
+const filterDropshadow = document.querySelector('#filter-dropshadow')
+const checkContrast = document.querySelector('#check-contrast')
+const checkBrightness = document.querySelector('#check-brightness')
+const checkGrayscale = document.querySelector('#check-grayscale')
+const checkHueRotation = document.querySelector('#check-hueRotation')
+const checkOpacity = document.querySelector('#check-opacity')
+const checkSaturation = document.querySelector('#check-saturation')
+const checkSepia = document.querySelector('#check-sepia')
 
-const previewImg = document.querySelector('#box')
+const previewImg = document.querySelector('#image')
 
-const rule = document.querySelector('#rule span')
-const webkitRule = document.querySelector('#webkit-rule span')
-const mozRule = document.querySelector('#moz-rule span')
+const filterRule = document.querySelector('#filter-rule span')
+const filterWebkitRule = document.querySelector('#filter-webkit-rule span')
+const filterMozRule = document.querySelector('#filter-moz-rule span')
 
-const rulesArea = document.querySelector('#rules-area');
-const copyConfig = document.querySelector("#copy-config")
+const filterRulesArea = document.querySelector('#filter-rules-area');
+const filterCopyConfig = document.querySelector("#filter-copy-config")
 
 
 const imgFilter = new ImageFilterGenerator(
-  horizontal,
-  horizontalRef,
-  vertical,
-  verticalRef,
-  blur,
-  blurRef,
-  color,
-  colorRef,
-  opacity,
-  opacityRef,
+  filterHorizontal,
+  filterHorizontalRef,
+  filterVertical,
+  filterVerticalRef,
+  filterBlur,
+  filterBlurRef,
+  filterColor,
+  filterColorRef,
+  filterOpacity,
+  filterOpacityRef,
   previewImg,
-  contrast,
-  contrastRef,
-  brightness,
-  brightnessRef,
-  grayscale,
-  grayscaleRef,
-  hueRotation,
-  hueRotationRef,
-  saturation,
-  saturationRef,
-  sepia,
-  sepiaRef,
-  dropshadow,
-  rule,
-  webkitRule,
-  mozRule
+  filterContrast,
+  filterContrastRef,
+  checkContrast,
+  filterBrightness,
+  filterBrightnessRef,
+  filterGrayscale,
+  filterGrayscaleRef,
+  filterHueRotation,
+  filterHueRotationRef,
+  filterSaturation,
+  filterSaturationRef,
+  filterSepia,
+  filterSepiaRef,
+  filterDropshadow,
+  filterRule,
+  filterWebkitRule,
+  filterMozRule
 )
 
 imgFilter.initialize()
@@ -225,94 +230,102 @@ imgFilter.initialize()
 
 // EVENTS
 
-rulesArea.addEventListener('click', () => {
-  const rules = rulesArea.innerText.replace(/^\s*\n/gm, "");
+filterRulesArea.addEventListener('click', () => {
+  const filterRules = filterRulesArea.innerText.replace(/^\s*\n/gm, "");
 
-  navigator.clipboard.writeText(rules).then(() => {
-    copyConfig.innerText = "Config copied! Apply it to your project.";
+  navigator.clipboard.writeText(filterRules).then(() => {
+    filterCopyConfig.innerText = "Config copied! Apply it to your project.";
 
     setTimeout(() => {
-      copyConfig.innerText = 'Click the area above to copy the current rules';
+      filterCopyConfig.innerText = 'Click the area above to copy the current rules';
     }, 1000);
     })
  })
 
  
 
-horizontal.addEventListener("input", (e) => {
+filterHorizontal.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("horizontal", value)
 })
 
-vertical.addEventListener("input", (e) => {
+filterVertical.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("vertical", value)
 })
 
-blur.addEventListener("input", (e) => {
+filterBlur.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("blur", value)
 })
 
-color.addEventListener("input", (e) => {
+filterColor.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("color", value)
 })
 
-opacity.addEventListener("input", (e) => {
+filterOpacity.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("opacity", value)
 })
 
-contrast.addEventListener("input", (e) => {
+filterContrast.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("contrast", value)
 })
 
-brightness.addEventListener("input", (e) => {
+filterBrightness.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("brightness", value)
+
+  if (value !== 0) {
+    previewImg.style.filter += `brightness(${value}%)`
+  }
 })
 
-grayscale.addEventListener("input", (e) => {
+filterGrayscale.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("grayscale", value)
 })
 
-hueRotation.addEventListener("input", (e) => {
+filterHueRotation.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("hueRotation", value)
+
+  if (value !== 0) {
+    previewImg.style.filter += `hue-rotate(${value}deg)`
+  }
 })
 
-saturation.addEventListener("input", (e) => {
+filterSaturation.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("saturation", value)
 })
 
-sepia.addEventListener("input", (e) => {
+filterSepia.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("sepia", value)
 })
 
-dropshadow.addEventListener("input", (e) => {
-  const value = e.target.value
+// filterDropshadow.addEventListener("input", (e) => {
+//   const value = e.target.value
 
-  imgFilter.updateValue("dropshadow", value)
-})
+//   imgFilter.updateValue("dropshadow", value)
+// })
 
-other.addEventListener("input", (e) => {
-  const value = e.target.value
+// filterOther.addEventListener("input", (e) => {
+//   const value = e.target.value
 
-  imgFilter.updateValue("other", value)
-})
+//   imgFilter.updateValue("other", value)
+// })

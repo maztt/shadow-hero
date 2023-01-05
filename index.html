@@ -223,7 +223,7 @@
           <div class="range-input">
             <label for="text-color">Shadow color:</label>
             <input
-              type="text-color"
+              type="color"
               name="text-color"
               id="text-color"
             />
@@ -255,19 +255,19 @@
         <img src="src/images/heroshadow.png" alt="">
         <h2><span class="name">Shadow Hero</span> Preview:</h2>
         <span id="text">
-          What does the S on your chest stand for?
+          What does the "S" on your chest stand for?
         </span>
       </div>
     </div>
 
     <div id="generated-rule">
       <h2>These are your rules:</h2>
-      <div id="rules-area">
-        <p id="rule">text-shadow: <span></span>;</p>
-        <p id="webkit-rule">-webkit-text -shadow: <span></span>;</p>
-        <p id="moz-rule">-moz-text -shadow: <span></span>;</p>
+      <div id="text-rules-area">
+        <p id="text-rule">text-shadow: <span></span>;</p>
+        <p id="text-webkit-rule">-webkit-text -shadow: <span></span>;</p>
+        <p id="text-moz-rule">-moz-text -shadow: <span></span>;</p>
       </div>
-      <p id="copy-config">
+      <p id="text-copy-config">
         Click the area above to copy the current rules
       </p>
     </div>
@@ -281,63 +281,63 @@
         <h2>Set your <span class="name">Shadow Hero</span> <u>filtering</u> config:</h2>
         <div class="form-control">
           <div class="range-input">
-            <label for="dropshadow">Activate drop-shadow effects:</label>
+            <label for="filter-dropshadow">Activate drop-shadow effects:</label>
             <input
               type="checkbox"
-              name="dropshadow"
-              id="dropshadow"
+              name="filter-dropshadow"
+              id="filter-dropshadow"
             />
           </div>
         </div>
 
         <div class="form-control">
           <div class="range-input">
-            <label for="horizontal">Horizontal offset (displacement):</label>
+            <label for="filter-horizontal">Horizontal offset (displacement):</label>
             <input
               type="range"
-              name="horizontal"
-              id="horizontal"
+              name="filter-horizontal"
+              id="filter-horizontal"
               min="-100"
               max="100"
               value="5"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="horizontal-value" id="horizontal-value">
+            <input type="text" name="filter-horizontal-value" id="filter-horizontal-value">
             <p>px</p>
           </div>
         </div>
         <div class="form-control">
           <div class="range-input">
-            <label for="vertical">Vertical offset (displacement):</label>
+            <label for="filter-vertical">Vertical offset (displacement):</label>
             <input
               type="range"
-              name="vertical"
-              id="vertical"
+              name="filter-vertical"
+              id="filter-vertical"
               min="-100"
               max="100"
               value="5"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="vertical-value" id="vertical-value">
+            <input type="text" name="filter-vertical-value" id="filter-vertical-value">
             <p>px</p>
           </div>
         </div>
         <div class="form-control">
           <div class="range-input">
-            <label for="blur">Blur intensity:</label>
+            <label for="filter-blur">Blur intensity:</label>
             <input
               type="range"
-              name="blur"
-              id="blur"
+              name="filter-blur"
+              id="filter-blur"
               min="0"
               max="100"
               value="10"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="blur-value" id="blur-value">
+            <input type="text" name="filter-blur-value" id="filter-blur-value">
             <p>px</p>
           </div>
         </div>  
@@ -346,102 +346,117 @@
             <label for="color">Shadow color:</label>
             <input
               type="color"
-              name="color"
-              id="color"
+              name="filter-color"
+              id="filter-color"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="color-value" id="color-value">
+            <input type="text" name="filter-color-value" id="filter-color-value">
           </div>
         </div>
 
-<!-- DROP SHADOW ENDS HERE -->
+        <div class="form-control">
+          <div class="range-input filters">
+            <input
+            type="checkbox"
+            name="check-contrast"
+            id="check-contrast"
+            />
+           <label for="filter-contrast">Contrast intensity:</label>
+            <input
+              type="range"
+              name="filter-contrast"
+              id="filter-contrast"
+              min="0"
+              max="100"
+              value="10"
+            />
+          </div>
+          <div class="reference-input">
+            <input type="text" name="filter-contrast-value" id="filter-contrast-value">
+            <p>%</p>
+          </div>
+        </div>
 
-<div class="form-control">
-  <div class="range-input">
-    <label for="other">Activate other effects:</label>
-    <input
-      type="checkbox"
-      name="other"
-      id="other"
-    />
-  </div>
-</div>
+
         <div class="form-control">
-          <div class="range-input">
-            <label for="contrast">Contrast intensity:</label>
+          <div class="range-input filters">
+            <input
+            type="checkbox"
+            name="check-brightness"
+            id="check-brightness"
+            />
+            <label for="filter-brightness">Brightness intensity:</label>
             <input
               type="range"
-              name="contrast"
-              id="contrast"
+              name="filter-brightness"
+              id="filter-brightness"
+              min="0"
+              max="100"
+              value="0"
+            />
+          </div>
+          <div class="reference-input">
+            <input type="text" name="filter-brightness-value" id="filter-brightness-value">
+            <p>%</p>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="range-input filters">
+            <input
+            type="checkbox"
+            name="check-grayscale"
+            id="check-grayscale"
+            />
+            <label for="filter-grayscale">Grayscale intensity:</label>
+            <input
+              type="range"
+              name="filter-grayscale"
+              id="filter-grayscale"
               min="0"
               max="100"
               value="10"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="contrast-value" id="contrast-value">
-            <p>px</p>
+            <input type="text" name="filter-grayscale-value" id="filter-grayscale-value">
+            <p>%</p>
           </div>
         </div>
         <div class="form-control">
-          <div class="range-input">
-            <label for="brightness">Brightness intensity:</label>
+          <div class="range-input filters">
+            <input
+            type="checkbox"
+            name="check-hueRotation"
+            id="check-hueRotation"
+            />
+            <label for="filter-hueRotation">Hue-rotation:</label>
             <input
               type="range"
-              name="brightness"
-              id="brightness"
+              name="filter-hueRotation"
+              id="filter-hueRotation"
               min="0"
-              max="100"
-              value="10"
+              max="360"
+              value="0"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="brightness-value" id="brightness-value">
-            <p>px</p>
+            <input type="text" name="filter-hueRotation-value" id="filter-hueRotation-value">
+            <p>deg</p>
           </div>
         </div>
         <div class="form-control">
-          <div class="range-input">
-            <label for="grayscale">Grayscale intensity:</label>
+          <div class="range-input filters">
             <input
-              type="range"
-              name="grayscale"
-              id="grayscale"
-              min="0"
-              max="100"
-              value="10"
+            type="checkbox"
+            name="check-opacity"
+            id="check-opacity"
             />
-          </div>
-          <div class="reference-input">
-            <input type="text" name="grayscale-value" id="grayscale-value">
-            <p>px</p>
-          </div>
-        </div>
-        <div class="form-control">
-          <div class="range-input">
-            <label for="hueRotation">Hue-rotation:</label>
+            <label for="filter-opacity">Opacity:</label>
             <input
               type="range"
-              name="hueRotation"
-              id="hueRotation"
-              min="0"
-              max="100"
-              value="10"
-            />
-          </div>
-          <div class="reference-input">
-            <input type="text" name="hueRotation-value" id="hueRotation-value">
-            <p>px</p>
-          </div>
-        </div>
-        <div class="form-control">
-          <div class="range-input">
-            <label for="opacity">Opacity:</label>
-            <input
-              type="range"
-              name="opacity"
-              id="opacity"
+              name="filter-opacity"
+              id="filter-opacity"
               min="0"
               max="1"
               step="0.01"
@@ -449,41 +464,51 @@
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="opacity-value" id="opacity-value">
+            <input type="text" name="filter-opacity-value" id="filter-opacity-value">
           </div>
         </div>
         <div class="form-control">
-          <div class="range-input">
-            <label for="saturation">Saturation intensity:</label>
+          <div class="range-input filters">
+            <input
+            type="checkbox"
+            name="check-saturation"
+            id="check-saturation"
+            />
+            <label for="filter-saturation">Saturation intensity:</label>
             <input
               type="range"
-              name="saturation"
-              id="saturation"
+              name="filter-saturation"
+              id="filter-saturation"
               min="0"
               max="100"
               value="10"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="saturation-value" id="saturation-value">
-            <p>px</p>
+            <input type="text" name="filter-saturation-value" id="filter-saturation-value">
+            <p>%</p>
           </div>
         </div>
         <div class="form-control">
-          <div class="range-input">
-            <label for="sepia">Sepia intensity:</label>
+          <div class="range-input filters">
+            <input
+            type="checkbox"
+            name="check-sepia"
+            id="check-sepia"
+            />
+            <label for="filter-sepia">Sepia intensity:</label>
             <input
               type="range"
-              name="sepia"
-              id="sepia"
+              name="filter-sepia"
+              id="filter-sepia"
               min="0"
               max="100"
               value="10"
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="sepia-value" id="sepia-value">
-            <p>px</p>
+            <input type="text" name="filter-sepia-value" id="filter-sepia-value">
+            <p>%</p>
           </div>
         </div>
       </div>
@@ -491,18 +516,18 @@
       <div id="preview">
         <img src="src/images/heroshadow.png" alt="">
         <h2><span class="name">Shadow Hero</span> Preview:</h2>
-        <img src="src/images/heroshadow.png" alt="">
+        <img id="image" src="src/images/heroshadow.png" alt="">
       </div>
     </div>
 
     <div id="generated-rule">
       <h2>These are your rules:</h2>
-      <div id="rules-area">
-        <p id="rule">filter: <span></span>;</p>
-        <p id="webkit-rule">-webkit-filter: <span></span>;</p>
-        <p id="moz-rule">-moz-filter: <span></span>;</p>
+      <div id="filter-rules-area">
+        <p id="filter-rule">filter: <span></span>;</p>
+        <p id="filter-webkit-rule">-webkit-filter: <span></span>;</p>
+        <p id="filter-moz-rule">-moz-filter: <span></span>;</p>
       </div>
-      <p id="copy-config">
+      <p id="filter-copy-config">
         Click the area above to copy the current rules
       </p>
     </div>
