@@ -10,20 +10,26 @@ class ImageFilterGenerator {
     colorRef,
     opacity,
     opacityRef,
+    checkOpacity,
     previewImg,
     contrast,
     contrastRef,
     checkContrast,
     brightness,
     brightnessRef,
+    checkBrightness,
     grayscale,
     grayscaleRef,
+    checkGrayscale,
     hueRotation,
     hueRotationRef,
+    checkHueRotation,
     saturation,
     saturationRef,
+    checkSaturation,
     sepia,
     sepiaRef,
+    checkSepia,
     dropshadow,
     rule,
     webkitRule,
@@ -39,20 +45,33 @@ class ImageFilterGenerator {
     this.colorRef = colorRef
     this.opacity = opacity
     this.opacityRef = opacityRef
+    this.checkOpacity = checkOpacity
+    this.checkOpacityRef = checkOpacity.checked;
     this.previewImg = previewImg
     this.contrast = contrast
     this.contrastRef = contrastRef
-    this.checkContrast = checkContrast.checked
+    this.checkContrast = checkContrast
+    this.checkContrastRef = checkContrast.checked;
     this.brightness = brightness
     this.brightnessRef = brightnessRef
+    this.checkBrightness = checkBrightness
+    this.checkBrightnessRef = checkBrightness.checked;
     this.grayscale = grayscale
     this.grayscaleRef = grayscaleRef
+    this.checkGrayscale = checkGrayscale
+    this.checkGrayscaleRef = checkGrayscale.checked;
     this.hueRotation = hueRotation
     this.hueRotationRef = hueRotationRef
+    this.checkHueRotation = checkHueRotation
+    this.checkHueRotationRef = checkHueRotation.checked;
     this.saturation = saturation
     this.saturationRef = saturationRef
+    this.checkSaturation = checkSaturation
+    this.checkSaturationRef = checkSaturation.checked;
     this.sepia = sepia
     this.sepiaRef = sepiaRef
+    this.checkSepia = checkSepia
+    this.checkSepiaRef = checkSepia.checked;
     this.dropshadow = dropshadow
     this.dropshadowRef = dropshadow.checked; // Validar
     this.rule = rule
@@ -81,7 +100,7 @@ class ImageFilterGenerator {
   applyRule() {
     const rgbValue = this.hexToRgb(this.colorRef.value);
 
-    const shadowRule = `${this.dropshadowRef ? `drop-shadow(${this.horizontalRef.value}px ${this.verticalRef.value}px ${this.blurRef.value}px rgba(${rgbValue}))` : ""} ${this.checkContrast ? `contrast(${this.contrastRef.value}%)` : ""} ${this.brightnessRef ? `brightness(${this.brightnessRef.value}%)` : ""} ${this.grayscaleRef ? `grayscale(${this.grayscaleRef.value}%)` : ""} ${this.hueRotationRef ? `hue-rotate(${this.hueRotationRef.value}deg)` : ""} ${this.saturationRef ? `saturation(${this.saturationRef.value}%)` : ""} ${this.sepiaRef ? `sepia(${this.sepiaRef.value}%)` : ""}`;
+    const shadowRule = `${this.dropshadowRef ? `drop-shadow(${this.horizontalRef.value}px ${this.verticalRef.value}px ${this.blurRef.value}px rgba(${rgbValue}))` : ""} ${this.checkContrastRef ? `contrast(${this.contrastRef.value}%)` : ""} ${this.checkBrightnessRef ? `brightness(${this.brightnessRef.value}%)` : ""} ${this.checkGrayscaleRef ? `grayscale(${this.grayscaleRef.value}%)` : ""} ${this.checkHueRotationRef ? `hue-rotate(${this.hueRotationRef.value}deg)` : ""} ${this.checkOpacityRef ? `opacity(${this.opacityRef.value}%)` : ""} ${this.checkSaturationRef ? `saturate(${this.saturationRef.value}%)` : ""} ${this.checkSepiaRef ? `sepia(${this.sepiaRef.value}%)` : ""}`;
 
     this.previewImg.style.filter = shadowRule;
     this.currentRule = shadowRule;
@@ -100,6 +119,8 @@ class ImageFilterGenerator {
   updateValue(type, value) {
 
     switch(type) {
+
+      // SLIDERS
       case "horizontal":
         this.horizontalRef.value = value;
         break
@@ -133,14 +154,63 @@ class ImageFilterGenerator {
       case "sepia":
         this.sepiaRef.value = value;
         break
-      case "dropshadow":
 
+      // CHECKBOXES
+      case "dropshadow":
         if (filterDropshadow.checked) {
           this.dropshadowRef = value;
         } else {
           this.dropshadowRef = "";
         }
-
+        break
+      case "checkContrast":
+        if (checkContrast.checked) {
+          this.checkContrastRef = value;
+        } else {
+          this.checkContrastRef = "";
+        }
+        break
+      case "checkBrightness":
+        if (checkBrightness.checked) {
+          this.checkBrightnessRef = value;
+        } else {
+          this.checkBrightnessRef = "";
+        }
+        break
+      case "checkGrayscale":
+        if (checkGrayscale.checked) {
+          this.checkGrayscaleRef = value;
+        } else {
+          this.checkGrayscaleRef = "";
+        }
+        break
+      case "checkHueRotation":
+        if (checkHueRotation.checked) {
+          this.checkHueRotationRef = value;
+        } else {
+          this.checkHueRotationRef = "";
+        }
+        break
+      case "checkOpacity":
+        if (checkOpacity.checked) {
+          this.checkOpacityRef = value;
+        } else {
+          this.checkOpacityRef = "";
+        }
+        break
+      case "checkSaturation":
+        if (checkSaturation.checked) {
+          this.checkSaturationRef = value;
+        } else {
+          this.checkSaturationRef = "";
+        }
+        break
+      case "checkSepia":
+        if (checkSepia.checked) {
+          this.checkSepiaRef = value;
+        } else {
+          this.checkSepiaRef = "";
+        }
         break
     }
 
@@ -173,8 +243,6 @@ const filterSaturationRef = document.querySelector('#filter-saturation-value')
 const filterSepia = document.querySelector('#filter-sepia')
 const filterSepiaRef = document.querySelector('#filter-sepia-value')
 
-
-// const filterOther = document.querySelector('#filter-other')
 const filterDropshadow = document.querySelector('#filter-dropshadow')
 const checkContrast = document.querySelector('#check-contrast')
 const checkBrightness = document.querySelector('#check-brightness')
@@ -205,20 +273,26 @@ const imgFilter = new ImageFilterGenerator(
   filterColorRef,
   filterOpacity,
   filterOpacityRef,
+  checkOpacity,
   previewImg,
   filterContrast,
   filterContrastRef,
   checkContrast,
   filterBrightness,
   filterBrightnessRef,
+  checkBrightness,
   filterGrayscale,
   filterGrayscaleRef,
+  checkGrayscale,
   filterHueRotation,
   filterHueRotationRef,
+  checkHueRotation,
   filterSaturation,
   filterSaturationRef,
+  checkSaturation,
   filterSepia,
   filterSepiaRef,
+  checkSepia,
   filterDropshadow,
   filterRule,
   filterWebkitRule,
@@ -284,10 +358,6 @@ filterBrightness.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("brightness", value)
-
-  if (value !== 0) {
-    previewImg.style.filter += `brightness(${value}%)`
-  }
 })
 
 filterGrayscale.addEventListener("input", (e) => {
@@ -301,9 +371,9 @@ filterHueRotation.addEventListener("input", (e) => {
 
   imgFilter.updateValue("hueRotation", value)
 
-  if (value !== 0) {
-    previewImg.style.filter += `hue-rotate(${value}deg)`
-  }
+  // if (value !== 0) {
+  //   previewImg.style.filter += `hue-rotate(${value}deg)`
+  // }
 })
 
 filterSaturation.addEventListener("input", (e) => {
@@ -318,14 +388,50 @@ filterSepia.addEventListener("input", (e) => {
   imgFilter.updateValue("sepia", value)
 })
 
-// filterDropshadow.addEventListener("input", (e) => {
-//   const value = e.target.value
+filterDropshadow.addEventListener("input", (e) => {
+  const value = e.target.value
 
-//   imgFilter.updateValue("dropshadow", value)
-// })
+  imgFilter.updateValue("dropshadow", value)
+})
 
-// filterOther.addEventListener("input", (e) => {
-//   const value = e.target.value
+checkContrast.addEventListener("input", (e) => {
+  const value = e.target.value
 
-//   imgFilter.updateValue("other", value)
-// })
+  imgFilter.updateValue("checkContrast", value)
+})
+
+checkBrightness.addEventListener("input", (e) => {
+  const value = e.target.value
+
+  imgFilter.updateValue("checkBrightness", value)
+})
+
+checkGrayscale.addEventListener("input", (e) => {
+  const value = e.target.value
+
+  imgFilter.updateValue("checkGrayscale", value)
+})
+
+checkHueRotation.addEventListener("input", (e) => {
+  const value = e.target.value
+
+  imgFilter.updateValue("checkHueRotation", value)
+})
+
+checkOpacity.addEventListener("input", (e) => {
+  const value = e.target.value
+
+  imgFilter.updateValue("checkOpacity", value)
+})
+
+checkSaturation.addEventListener("input", (e) => {
+  const value = e.target.value
+
+  imgFilter.updateValue("checkSaturation", value)
+})
+
+checkSepia.addEventListener("input", (e) => {
+  const value = e.target.value
+
+  imgFilter.updateValue("checkSepia", value)
+})
