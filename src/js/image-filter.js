@@ -102,14 +102,43 @@ class ImageFilterGenerator {
 
     const shadowRule = `${this.dropshadowRef ? `drop-shadow(${this.horizontalRef.value}px ${this.verticalRef.value}px ${this.blurRef.value}px rgba(${rgbValue}))` : ""} ${this.checkContrastRef ? `contrast(${this.contrastRef.value}%)` : ""} ${this.checkBrightnessRef ? `brightness(${this.brightnessRef.value}%)` : ""} ${this.checkGrayscaleRef ? `grayscale(${this.grayscaleRef.value}%)` : ""} ${this.checkHueRotationRef ? `hue-rotate(${this.hueRotationRef.value}deg)` : ""} ${this.checkOpacityRef ? `opacity(${this.opacityRef.value}%)` : ""} ${this.checkSaturationRef ? `saturate(${this.saturationRef.value}%)` : ""} ${this.checkSepiaRef ? `sepia(${this.sepiaRef.value}%)` : ""}`;
 
+    
     this.previewImg.style.filter = shadowRule;
     this.currentRule = shadowRule;
+    
+    if (
+      !this.dropshadowRef &&
+      !this.checkBrightnessRef &&
+      !this.checkContrastRef &&
+      !this.checkGrayscaleRef &&
+      !this.checkHueRotationRef &&
+      !this.checkOpacityRef &&
+      !this.checkSaturationRef &&
+      !this.checkSepiaRef
+    ) {
+      this.previewImg.style.filter = 'none';
+    }
   }
 
   showRule() {
     this.rule.innerText = this.currentRule;
     this.webkitRule.innerText = this.currentRule;
     this.mozRule.innerText = this.currentRule;
+
+    if (
+      !this.dropshadowRef &&
+      !this.checkBrightnessRef &&
+      !this.checkContrastRef &&
+      !this.checkGrayscaleRef &&
+      !this.checkHueRotationRef &&
+      !this.checkOpacityRef &&
+      !this.checkSaturationRef &&
+      !this.checkSepiaRef
+    ) {
+      this.rule.innerText = 'none';
+      this.webkitRule.innerText = 'none';
+      this.mozRule.innerText = 'none';
+    }
   }
 
   hexToRgb(hex) {
@@ -370,10 +399,6 @@ filterHueRotation.addEventListener("input", (e) => {
   const value = e.target.value
 
   imgFilter.updateValue("hueRotation", value)
-
-  // if (value !== 0) {
-  //   previewImg.style.filter += `hue-rotate(${value}deg)`
-  // }
 })
 
 filterSaturation.addEventListener("input", (e) => {

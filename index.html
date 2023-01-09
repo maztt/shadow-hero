@@ -112,7 +112,7 @@
                   />
                 </div>
                 <div class="reference-input">
-                  <input type="text" name="color-value" id="color-value">
+                  <input type="text" name="color-value" id="color-value"  class="color-input">
                 </div>
               </div>
               <div class="form-control">
@@ -133,13 +133,13 @@
                 </div>
               </div>
               <div class="form-control">
-                <div class="range-input">
-                  <label for="inset">Inner shadow (inset):</label>
+                <div class="range-input filters">
                   <input
                     type="checkbox"
                     name="inset"
                     id="inset"
                   />
+                  <label for="inset">Inner shadow (inset):</label>
                 </div>
               </div>
             </div>
@@ -152,12 +152,12 @@
           </div>
           <div id="generated-rule">
             <h2>These are your rules:</h2>
-            <div id="rules-area">
+            <div id="rules-area" class="box-rules">
               <p id="rule">box-shadow: <span></span>;</p>
               <p id="webkit-rule">-webkit-box-shadow: <span></span>;</p>
               <p id="moz-rule">-moz-box-shadow: <span></span>;</p>
             </div>
-            <p id="copy-config">
+            <p id="copy-config" class="copy-config">
               Click the area above to copy the current rules
             </p>
           </div>
@@ -229,7 +229,7 @@
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="text-color-value" id="text-color-value">
+            <input type="text" name="text-color-value" id="text-color-value" class="color-input">
           </div>
         </div>
         <div class="form-control">
@@ -262,12 +262,12 @@
 
     <div id="generated-rule">
       <h2>These are your rules:</h2>
-      <div id="text-rules-area">
+      <div id="text-rules-area" class="box-rules">
         <p id="text-rule">text-shadow: <span></span>;</p>
         <p id="text-webkit-rule">-webkit-text -shadow: <span></span>;</p>
         <p id="text-moz-rule">-moz-text -shadow: <span></span>;</p>
       </div>
-      <p id="text-copy-config">
+      <p id="text-copy-config" class="copy-config">
         Click the area above to copy the current rules
       </p>
     </div>
@@ -280,13 +280,13 @@
       <div id="controls-container">
         <h2>Set your <span class="name">Shadow Hero</span> <u>filtering</u> config:</h2>
         <div class="form-control">
-          <div class="range-input">
-            <label for="filter-dropshadow">Activate drop-shadow effects:</label>
+          <div class="range-input filters">
             <input
               type="checkbox"
               name="filter-dropshadow"
               id="filter-dropshadow"
             />
+            <label for="filter-dropshadow">Drop-shadow effects:</label>
           </div>
         </div>
 
@@ -351,7 +351,7 @@
             />
           </div>
           <div class="reference-input">
-            <input type="text" name="filter-color-value" id="filter-color-value">
+            <input type="text" name="filter-color-value" id="filter-color-value" class="color-input">
           </div>
         </div>
 
@@ -522,12 +522,12 @@
 
     <div id="generated-rule">
       <h2>These are your rules:</h2>
-      <div id="filter-rules-area">
+      <div id="filter-rules-area" class="box-rules">
         <p id="filter-rule">filter: <span></span>;</p>
         <p id="filter-webkit-rule">-webkit-filter: <span></span>;</p>
         <p id="filter-moz-rule">-moz-filter: <span></span>;</p>
       </div>
-      <p id="filter-copy-config">
+      <p id="filter-copy-config" class="copy-config">
         Click the area above to copy the current rules
       </p>
     </div>

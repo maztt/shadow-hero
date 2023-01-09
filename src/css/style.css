@@ -14,58 +14,58 @@ h2 {
   color: #333;
 }
 
-#box-shadow-generator {
+div#box-shadow-generator {
   display: flex;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-#controls-container, #preview {
+div#controls-container, div#preview {
   flex: 1;
   padding: 2rem;
 }
 
-#preview > img {
+div#preview > img {
   margin-bottom: 30px;
 }
 
 /* Page Styling */
 
-.form-control {
+div.form-control {
   display: flex;
   padding-bottom: 1.2rem;
   margin-bottom: 1.2rem;
   border-bottom: 1px dashed #ccc;
 }
 
-.form-control label {
+div.form-control label {
   font-weight: bold;
   margin-bottom: 1rem;
   color: #555;
 }
 
-.range-input {
+div.range-input {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.range-input.filters {
+div.range-input.filters {
   flex-direction: row;
   align-items: center;
 }
 
-.range-input.filters label {
-  width: 100px;
+div.range-input.filters label {
+  width: 170px;
   margin-bottom: 0;
   margin-left: 1rem;
 }
 
-.range-input.filters input[type="range"] {
+div.range-input.filters input[type="range"] {
   width: 200px;
 }
 
-.range-input input[type="range"] {
+div.range-input input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
@@ -74,7 +74,7 @@ h2 {
   outline: none;
 }
 
-.range-input input[type="range"]::-webkit-slider-thumb {
+div.range-input input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
@@ -83,33 +83,27 @@ h2 {
   cursor: pointer;
 }
 
-.reference-input {
+div.reference-input {
   display: flex;
   align-items: center;
 }
 
-.reference-input p {
+div.reference-input p {
   margin-left: 4px;
 }
 
-.form-control input[type="text"] {
+div.form-control input[type="text"] {
   height: 30px;
   width: 30px;
   margin-left: 1rem;
   text-align: center;
 }
 
-input#color-value {
+input[type="text"].color-input {
   width: 75px;
 }
 
-input#inset {
-  height: 20px;
-  width: 20px;
-  align-self: start;
-}
-
-input#inset {
+input[type="checkbox"] {
   accent-color: #a4a920;
 }
 
@@ -120,28 +114,28 @@ input#inset {
   margin: auto;
 }
 
-#box {
+div#box {
   width: 100%;
   height: 300px;
   background-color: #a4a920;
 }
 
-#text {
+span#text {
   font-size: 1.2rem;
   font-weight: bolder;
 }
 
-#generated-rule {
+div#generated-rule {
   text-align: center;
   margin-bottom: 2rem;
   padding: 0 2rem;
 }
 
-#generated-rule p {
+div#generated-rule p {
   margin-bottom: .5rem;
 }
 
-#rules-area {
+div.box-rules {
   background-color: #d3d3d3;
   max-width: 900px;
   margin: 0 auto;
@@ -151,15 +145,15 @@ input#inset {
   transition: 0.4s;
 }
 
-#rules-area:hover {
+div.box-rules:hover {
   background-color: #dfdfdf;
 }
 
-#rules-area:active {
+div.box-rules:active {
   background-color: #a4a920;
 }
 
-#copy-config {
+p.copy-config {
   margin-top: 1rem;
   font-style: italic;
 }
@@ -181,6 +175,6 @@ input#inset {
   font-weight: 600;
 }
 
-/* #filtered-img {
-  filter: drop-shadow(76px 5px 10px rgba(0, 0, 0));
-} */
+img#image {
+  width: 320px;
+}
